@@ -64,6 +64,7 @@
 					<includeLicenseText>false</includeLicenseText>
 					<outputFormat>all</outputFormat>
 					<outputName>bom</outputName>
+					<bomOutputDirectory>${project.build.directory}</bomOutputDirectory>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -65,10 +65,8 @@ jobs:
             cache: 'maven'
         - name: Generate CycloneDX SBOM
           run: mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
-          env:
-            BOM_OUTPUT: ${{github.workspace}}/bom.xml  # 將 SBOM 存儲在工作目錄下的 bom.xml
         - name: Upload CycloneDX SBOM
           uses: actions/upload-artifact@master
           with:
-            name: Reports
-            path: ${{github.workspace}}/bom.xml  # 上傳工作目錄下的 bom.xml 文件
+            name: BOM
+            path: target/bom.xml  # 上傳 Maven 標準目錄中的 bom.xml 文件
