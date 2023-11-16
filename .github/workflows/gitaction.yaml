@@ -93,4 +93,4 @@ jobs:
         with:
             context: .
             push: true
-            tags: 12qw412s/gitactionDependencyCheck:1.0
+            tags: 12qw412s/gitactiondependencycheck:1.0
