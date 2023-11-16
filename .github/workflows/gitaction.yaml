@@ -3,11 +3,15 @@ on: [push]
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
-    continue-on-error: true
     name: depecheck_test
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      - name: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
       - name: Build project with Maven
         run: mvn clean install
       - name: Depcheck
@@ -20,6 +24,8 @@ jobs:
           out: 'reports' # this is the default, no need to specify unless you wish to override it
           args: >
             --enableRetired
+        env:
+          JAVA_HOME: /opt/jdk
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
