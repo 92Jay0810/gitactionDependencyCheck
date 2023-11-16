@@ -66,9 +66,9 @@ jobs:
         - name: Generate CycloneDX SBOM
           run: mvn org.cyclonedx:cyclonedx-maven-plugin:makeAggregateBom
           env:
-            BOM_OUTPUT: reports/bom.xml  # 調整成你的專案結構中的相對位置
+            BOM_OUTPUT: bom.xml  # 調整成你的專案結構中的相對位置
         - name: Upload CycloneDX SBOM
           uses: actions/upload-artifact@master
           with:
             name: Reports
-            path: reports/bom.xml  # 調整成你的專案結構中的相對位置
+            path: bom.xml  # 調整成你的專案結構中的相對位置
