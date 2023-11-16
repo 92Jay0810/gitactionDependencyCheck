@@ -3,6 +3,7 @@ on: [push]
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
+    continue-on-error: true
     name: depecheck_test
     steps:
       - name: Checkout
@@ -12,7 +13,6 @@ jobs:
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
-        continue-on-error: true
         with:
           project: 'test'
           path: '.'
